@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <title>Prison Escape</title>
+</head>
+
+<body>
+    <div id="gameOutput" class="container mt-4">
+        <div class=" text-center mt-auto">
+            <h1>Prison Escape</h1>
+        </div>
+        <div class="alert alert-warning alert-dismissible fade show text-bg-warning" role="alert">
+            <strong>Escape Now!</strong> The button that changes everything. Are you ready to make your move? Push the button and claim your freedom!
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <p class="lead text-center">You wake up in a dimly lit prison cell. The sound of distant sirens fills the air.
+            What would you like to do?</p>
+        <div class="row">
+            <div class="col border-start border-end d-flex justify-content-center align-items-center">
+                <button class="btn btn-info btn-outline-light" onclick="exploreCell()">Explore the cell</button>
+            </div>
+            <div class="col border-start border-end d-flex justify-content-center align-items-center">
+                <button class="btn btn-info btn-outline-light" onclick="lookThroughBars()">Look through the
+                    bars</button>
+            </div>
+            <div class="col border-start border-end d-flex justify-content-center align-items-center">
+                <button class="btn btn-info btn-outline-light" onclick="listenForNoises()">Listen for noises</button>
+            </div>
+            <div class="col border-start border-end d-flex justify-content-center align-items-center">
+                <button class="btn btn-info btn-outline-light" onclick="checkInventory()">Check your inventory</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function printGameOutput(output) {
+            document.getElementById('gameOutput').innerHTML = output;
+        }
+
+        function exploreCell() {
+            printGameOutput(`
+        <p class="lead text-center">You search the cell and find a rusty nail hidden under the bed, a piece of string, and a small rock. What would you like to do?</p>
+            <div class="row">
+                <div class="col border-start border-end d-flex justify-content-center align-items-center">
+                    <button class="btn btn-info btn-outline-light" onclick="pickLock()">Pick the lock with the nail</button>
+                </div>
+                <div class="col border-start border-end d-flex justify-content-center align-items-center">
+                    <button class="btn btn-info btn-outline-light" onclick="tieString()">Tie the string to the bars</button>
+                </div>
+                <div class="col border-start border-end d-flex justify-content-center align-items-center">
+                    <button class="btn btn-info btn-outline-light" onclick="throwRock()">Throw the rock at the guard</button>
+                </div>
+                <div class="col border-start border-end d-flex justify-content-center align-items-center">
+                    <button class="btn btn-info btn-outline-light" onclick="checkInventory()">Check your inventory</button>
+                </div>
+            </div>
+        `);
+        }
+
+        function lookThroughBars() {
+            printGameOutput(`
+        <p class="lead text-center">You look through the bars and see a guard patrolling the corridor. What would you like to do?</p>
+            <div class="row">
+                <div class="col border-start border-end d-flex justify-content-center align-items-center">
+                    <button class="btn btn-info btn-outline-light" onclick="pickLock()">Pick the lock with the nail</button>
+                </div>
+                <div class="col border-start border-end d-flex justify-content-center align-items-center">
+                    <button class="btn btn-info btn-outline-light" onclick="tieString()">Tie the string to the bars</button>
+                </div>
+                <div class="col border-start border-end d-flex justify-content-center align-items-center">
+                    <button class="btn btn-info btn-outline-light" onclick="throwRock()">Throw the rock at the guard</button>
+                </div>
+                <div class="col border-start border-end d-flex justify-content-center align-items-center">
+                    <button class="btn btn-info btn-outline-light" onclick="checkInventory()">Check your inventory</button>
+                </div>
+            </div>
+        `);
+        }
+
+        function listenForNoises() {
+            printGameOutput(`
+        <p class="lead text-center">You strain your ears to listen for noises. You hear footsteps approaching your cell. What would you like to do?</p>
+            <div class="row">
+                <div class="col border-start border-end d-flex justify-content-center align-items-center">
+                    <button class="btn btn-info btn-outline-light" onclick="pickLock()">Pick the lock with the nail</button>
+                </div>
+                <div class="col border-start border-end d-flex justify-content-center align-items-center">
+                    <button class="btn btn-info btn-outline-light" onclick="tieString()">Tie the string to the bars</button>
+                </div>
+                <div class="col border-start border-end d-flex justify-content-center align-items-center">
+                    <button class="btn btn-info btn-outline-light" onclick="throwRock()">Throw the rock at the guard</button>
+                </div>
+                <div class="col border-start border-end d-flex justify-content-center align-items-center">
+                    <button class="btn btn-info btn-outline-light" onclick="checkInventory()">Check your inventory</button>
+                </div>
+            </div>
+        `);
+        }
+
+        function checkInventory() {
+            printGameOutput(`
+        <p class="lead text-center">Your inventory contains:</p>
+            <ul>
+                <li>Rusty nail</li>
+                <li>Piece of string</li>
+                <li>Small rock</li>
+            </ul>
+            <p class="lead text-center">What would you like to do?</p>
+            <div class="row">
+                <div class="col border-start border-end d-flex justify-content-center align-items-center">
+                    <button class="btn btn-info btn-outline-light" onclick="exploreCell()">Explore the cell</button>
+                </div>
+                <div class="col border-start border-end d-flex justify-content-center align-items-center">
+                    <button class="btn btn-info btn-outline-light" onclick="lookThroughBars()">Look through the bars</button>
+                </div>
+                <div class="col border-start border-end  d-flex justify-content-center align-items-center">
+                    <button class="btn btn-info btn-outline-light" onclick="listenForNoises()">Listen for noises</button>
+                </div>
+                <div class="col border-start border-end d-flex justify-content-center align-items-center">
+                    <button class="btn btn-info btn-outline-light" onclick="checkInventory()">Check your inventory</button>
+                </div>
+            </div>
+        `);
+        }
+
+        function pickLock() {
+            printGameOutput(`
+        <p class="lead text-center">You carefully pick the lock with the rusty nail. It takes some time, but you manage to unlock the cell door. What would you like to do?</p>
+            <div class="row">
+                <div class="col border-start border-end  d-flex justify-content-center align-items-center">
+                    <button class="btn btn-info btn-outline-light" onclick="runDownCorridor()">Run down the corridor</button>
+                </div>
+                <div class="col border-start border-end d-flex justify-content-center align-items-center">
+                    <button class="btn btn-info btn-outline-light" onclick="hideInCell()">Hide back in the cell</button>
+                </div>
+            </div>
+        `);
+        }
+
+        function tieString() {
+            printGameOutput(`
+        <p class="lead text-center">You tie the string to the bars, creating a makeshift tripwire. What would you like to do?</p>
+            <div class="row">
+                <div class="col border-start border-end  d-flex justify-content-center align-items-center">
+                    <button class="btn btn-info btn-outline-light" onclick="runDownCorridor()">Run down the corridor</button>
+                </div>
+                <div class="col border-start border-end d-flex justify-content-center align-items-center">
+                    <button class="btn btn-info btn-outline-light" onclick="hideInCell()">Hide back in the cell</button>
+                </div>
+            </div>
+        `);
+        }
+
+        function throwRock() {
+            printGameOutput(`
+        <p class="lead text-center">You throw the rock at the guard, but it misses and alerts him to your presence. He quickly overpowers you and locks you back in the cell.</p>
+        <p class="lead text-center"><b>Game Over!<b></p>
+            <div class="row">
+                <div class="col border-start border-end d-flex justify-content-center align-items-center">
+                    <button class="btn btn-info btn-outline-light" onclick="startGame()">Try again</button>
+                </div>
+            </div>
+        `);
+        }
+
+        function runDownCorridor() {
+            printGameOutput(`
+        <p class="lead text-center">You sprint down the corridor, dodging guards and navigating the labyrinthine prison. Eventually, you reach an exit door. What would you like to do?</p>
+            <div class="row">
+                <div class="col border-start border-end  d-flex justify-content-center align-items-center">
+                    <button class="btn btn-info btn-outline-light" onclick="openExitDoor()">Open the door</button>
+                </div>
+                <div class="col border-start border-end d-flex justify-content-center align-items-center">
+                    <button class="btn btn-info btn-outline-light" onclick="hideBehindBarrels()">Hide behind some barrels</button>
+                </div>
+            </div>
+        `);
+        }
+
+        function hideInCell() {
+            printGameOutput(`
+        <p class="lead text-center">You hide back in the cell, but a guard spots you and locks you back inside.</p>
+        <p class="lead text-center"><b>Game Over!<b></p>
+            <div class="row">
+                <div class="col border-start border-end d-flex justify-content-center align-items-center">
+                    <button class="btn btn-info btn-outline-light" onclick="startGame()">Try again</button>
+                </div>
+            </div>
+        `);
+        }
+
+        function openExitDoor() {
+            printGameOutput(`
+        <p class="lead text-center">You push open the exit door and step into freedom. Congratulations, you've successfully escaped!</p>
+        <p class="lead text-center"><b>Game Over!<b></p>
+            <div class="row">
+                <div class="col border-start border-end d-flex justify-content-center align-items-center">
+                    <button class="btn btn-info btn-outline-light" onclick="startGame()">Play again</button>
+                </div>
+            </div>
+        `);
+        }
+
+        function hideBehindBarrels() {
+            printGameOutput(`
+        <p class="lead text-center">You hide behind some barrels, but a guard discovers you. He sounds the alarm, and you're quickly apprehended.</p>
+        <p class="lead text-center"><b>Game Over!<b></p>
+            <div class="row">
+                <div class="col border-start border-end d-flex justify-content-center align-items-center">
+                    <button class="btn btn-info btn-outline-light" onclick="startGame()">Try again</button>
+                </div>
+            </div>
+        `);
+        }
+
+        function startGame() {
+            printGameOutput(`
+             <div class=" text-center mt-auto"><h1>Prison Escape</h1></div>
+             <div class="alert alert-warning alert-dismissible fade show text-bg-warning" role="alert">
+              <strong>Escape Now!</strong> The button that changes everything. Are you ready to make your move? Push the button and claim your freedom! 
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+    <p class="lead text-center">You wake up in a dimly lit prison cell. The sound of distant sirens fills the air. What would you like to do?</p>
+    <div class="row">
+        <div class="col border-start border-end d-flex justify-content-center align-items-center">
+            <button class="btn btn-info btn-outline-light" onclick="exploreCell()">Explore the cell</button>
+        </div>
+        <div class="col border-start border-end d-flex justify-content-center align-items-center">
+            <button class="btn btn-info btn-outline-light" onclick="lookThroughBars()">Look through the bars</button>
+        </div>
+        <div class="col border-start border-end d-flex justify-content-center align-items-center">
+            <button class="btn btn-info btn-outline-light" onclick="listenForNoises()">Listen for noises</button>
+        </div>
+        <div class="col border-start border-end d-flex justify-content-center align-items-center">
+            <button class="btn btn-info btn-outline-light" onclick="checkInventory()">Check your inventory</button>
+        </div>
+    </div>
+  </div>
+  `);
+        }
+    </script>
+
+
+</body>
+
+</html>
